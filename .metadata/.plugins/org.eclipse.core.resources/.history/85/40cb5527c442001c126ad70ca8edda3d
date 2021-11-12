@@ -1,0 +1,38 @@
+package mms.member.ui;
+
+public class MemberUI {
+
+	public static void main(String[] args) {
+
+		boolean isStop = false;
+		MemberController memberController = new MemberController();
+		Scanner sc = new Scanner(System.in);
+		do {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		} while (!isStop);
+	}
+
+}

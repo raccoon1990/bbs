@@ -1,0 +1,9 @@
+package mms.member.svc;
+
+public class MemberListService {
+	
+	public ArrayList<Member> getMemberList() {
+
+	}
+
+}

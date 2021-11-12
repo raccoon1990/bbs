@@ -1,0 +1,96 @@
+package plsql_test;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ProcedureTest {
+
+	Connection conn = null;
+
+	// 저장프로시저 호출전 데이터 입력
+	public void insert() {
+		PreparedStatement pstmt = null;
+		connectDB();
+		
+		try {
+			String sql = "insert into member3 values(?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "Alpha");
+			pstmt.setString(2, "1234");
+			pstmt.setString(3, "AI");
+			pstmt.setInt(4, 20);
+			pstmt.setString(5, "LA");
+			pstmt.setString(6, "go@ai.com");
+			
+			int count = pstmt.executeUpdate();
+			
+			if(count > 0) {
+				System.out.println("insert success!");
+			}
+			else {
+				System.out.println("insert fail...");
+			}
+			conn.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void select() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		connectDB();
+		try {
+			String sql = "select * from member3";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("passwd");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				String addr = rs.getString("addr");
+				String email = rs.getString("email");
+				
+				System.out.println("id: " + id + ", pw: " + pw + ", name: " + name + ", age: " + age + 
+						", addr: " + addr + ", email: " + email);
+				
+			}
+			
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	// 저장프로시저 호출 후 데이터 입력
+	public void insertMember() {
+
+	}
+
+	public void connectDB() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			conn = DriverManager.getConnection(url, "javalink", "javalink");
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Connection Success");
+	}
+
+	public static void main(String[] args) {
+		ProcedureTest pt = new ProcedureTest();		
+		pt.insert();
+		pt.select();
+	}
+
+}

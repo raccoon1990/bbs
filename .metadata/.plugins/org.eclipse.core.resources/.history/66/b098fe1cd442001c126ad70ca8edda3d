@@ -1,0 +1,14 @@
+package mms.member.controller;
+
+public class MemberController {
+
+	public void processRequest(Action action,Scanner sc){
+		try{
+		action.execute(sc);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}	
+
+}

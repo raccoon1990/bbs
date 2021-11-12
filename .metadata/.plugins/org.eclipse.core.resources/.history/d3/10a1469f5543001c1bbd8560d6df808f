@@ -1,0 +1,13 @@
+package mms.member.svc;
+
+public class MemberModifyService {
+
+	public Member getOldMember(String name) {
+
+	}
+
+	public boolean modifyMember(Member updateMember) {
+
+	}
+
+}

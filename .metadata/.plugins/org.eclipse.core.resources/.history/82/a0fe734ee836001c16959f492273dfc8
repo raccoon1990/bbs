@@ -1,0 +1,74 @@
+package test2.login;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class LoginSVC {
+
+	Connection conn = null;
+	
+	static {
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Driver가 없음:: 해당 클래스를 찾을수 없습니다.");
+		}
+	}
+
+	public void connect() {
+
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+		try {
+			conn = DriverManager.getConnection(url, "javalink", "javalink");
+			conn.close();
+		} catch (SQLException e) {
+			System.out.println("주소, id, pw가 다릅니다.");
+		}
+		System.out.println("Connection Success!");
+
+	}
+
+	public User login(String id, String passwd) {
+		
+		User user = null;
+		
+		try{
+
+			
+			
+			String sql = "SELECT * FROM member WHERE id = '" + id + "' AND " +
+					"passwd = '" + passwd + "'";
+
+
+			if(            ){
+
+				user = new User(id, passwd, passwd, 0, id, passwd);
+
+
+
+
+
+					
+				
+			}			
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+		finally{
+			try{
+
+
+				
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+
+}

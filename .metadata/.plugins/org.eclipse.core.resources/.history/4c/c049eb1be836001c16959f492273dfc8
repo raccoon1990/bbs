@@ -1,0 +1,53 @@
+package test2.login;
+
+public class LoginSVC {
+
+	static {
+
+	}
+
+	public void connect() {
+
+	}
+
+	public User login(String id, String passwd) {
+		
+		User user = null;
+		
+		try{
+
+			
+			
+			String sql = "SELECT * FROM member WHERE id = '" + id + "' AND " +
+					"passwd = '" + passwd + "'";
+
+
+			if(            ){
+
+				user = new User(id, passwd, passwd, 0, id, passwd);
+
+
+
+
+
+					
+				
+			}			
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+		finally{
+			try{
+
+
+				
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+
+}

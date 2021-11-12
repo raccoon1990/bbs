@@ -1,0 +1,9 @@
+package mms.member.svc;
+
+public class MemberAddService {
+
+	public boolean addMember(Member newMember) throws Exception {
+
+	}
+
+}
