@@ -10,6 +10,7 @@ create table mms_member(
 
 );
 
+drop sequence member_id_seq;
 create sequence member_id_seq
-start with 1
+minvalue 1
 increment by 1
