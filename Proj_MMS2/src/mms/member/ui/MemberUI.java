@@ -17,7 +17,7 @@ public class MemberUI {
 		boolean isStop = false;
 		MemberController memberController = new MemberController();
 		Scanner sc = new Scanner(System.in);
-
+		System.out.println("pull");
 		do {
 			System.out.println("### 회원 관리 프로그램 ###");
 			System.out.println("1.회원등록");
